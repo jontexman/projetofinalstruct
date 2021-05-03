@@ -52,7 +52,7 @@ class Api::V1::PublishersController < ApplicationController
     end
 
     
-     '''
+     
     def games_publishers
         if Publisher.exists?(params[:id])
             publisher = Publisher.find(params[:id])
@@ -62,7 +62,7 @@ class Api::V1::PublishersController < ApplicationController
             render json: {status: 'ERROR', message: 'falha ao mostrar publicadora, id não existente'}, status: :unprocessable_entity
         end    
     end
-    '''  
+    
     
 
     private
