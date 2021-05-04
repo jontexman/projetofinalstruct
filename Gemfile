@@ -44,3 +44,6 @@ gem 'figaro'
 
 #Devise
 gem 'devise'
+
+#Token
+gem 'simple_token_authentication'
