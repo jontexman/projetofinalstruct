@@ -5,5 +5,6 @@ class Api::V1::UserController < ApplicationController
 
         if user.valid_password?(params[:password])
             render json: user.as_json(only: %i[username email])
+        end
     end
 end
