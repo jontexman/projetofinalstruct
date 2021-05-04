@@ -5,3 +5,5 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+#User.image.attached(io: File.open('./public/nome_imagem.formato'), filename:'nome_imagem.formato')
