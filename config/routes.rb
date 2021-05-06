@@ -1,4 +1,16 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, skip: :all
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
+  namespace 'api' do
+    namespace 'v1' do
+      scope 'users' do
+        post 'create', to: 'user#create', as: 'create_user'
+        post 'login', to: 'user#login', as: 'login_user'
+      end
+    end
+  end
+
+
+
 end
