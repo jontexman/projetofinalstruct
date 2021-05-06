@@ -7,3 +7,5 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 #User.image.attached(io: File.open('./public/nome_imagem.formato'), filename:'nome_imagem.formato')
+
+User.create(name:"Administrador",email:"admin@admin",password:"adm123",password_confirmation:"adm123",is_Admin:true)
