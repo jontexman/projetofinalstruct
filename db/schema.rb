@@ -71,7 +71,7 @@ ActiveRecord::Schema.define(version: 2021_05_04_183403) do
   end
 
   create_table "users", force: :cascade do |t|
-
+    end
   create_table "publishers", force: :cascade do |t|
 
     t.string "name"
