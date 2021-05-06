@@ -1,3 +1,4 @@
 class Category < ApplicationRecord
-  has_and_belongs_to_many :games
+  has_many :gamecategories
+  has_many :games, through: :gamecategories
 end
