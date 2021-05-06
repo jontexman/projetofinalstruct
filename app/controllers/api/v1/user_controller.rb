@@ -60,7 +60,7 @@ class Api::V1::UserController < ApplicationController
             user = User.find(params[:id])
             render json: user, status: :ok
         else    
-            render json: {data:'ERROR',message:'Usuario nao encontrado'},status: :unprocessable_entity
+            render json: {data:'ERROR',mesage:'Usuario nao encontrado'}, status: :unprocessable_entity
         end
     end
 
