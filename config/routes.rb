@@ -11,6 +11,14 @@ Rails.application.routes.draw do
         put 'update', to: 'user#update', as:'update_user'
         get 'show/:id', to:'user#show', as:'show_user'
       end
+      scope 'publishers/' do
+        get 'index', to:'publishers#index', as: 'publisher_index'
+        get 'show/:id', to:'publishers#show', as: 'show_publisher'
+        post 'create', to:'publishers#create', as: 'create_publisher'
+        delete 'destroy/:id', to:'publishers#destroy', as: 'destroy_publisher'
+        put 'update/:id', to:'publishers#update', as: 'update_publisher'
+        get 'games_publishers/:id', to:'publishers#games_publishers', as: 'publishers_games'
+      end
     end
   end
 end
