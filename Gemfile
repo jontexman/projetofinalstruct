@@ -39,8 +39,14 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-# figaro
+#Figaro
 gem 'figaro'
 
-# serializer
+#Devise
+gem 'devise'
+
+#Token
+gem 'simple_token_authentication'
+
+#Serializer
 gem 'active_model_serializers'
