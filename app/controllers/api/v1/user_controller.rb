@@ -10,7 +10,8 @@ class Api::V1::UserController < ApplicationController
         end
     end
 
-    def index
-        
-    end
+    #Register
+    #def register
+    #    user = User.find_by(email: params[:email])
+    #end
 end
