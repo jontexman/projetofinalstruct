@@ -56,7 +56,7 @@ class Api::V1::UserController < ApplicationController
     end
 
     def show
-        if User.exists?(id:,params[:id])
+        if User.exists?(id: params[:id])
             user = User.find(params[:id])
             render json: user, status: :ok
         else    
