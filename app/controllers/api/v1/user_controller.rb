@@ -27,6 +27,43 @@ class Api::V1::UserController < ApplicationController
 
     end
 
+    def updated
+        if User.exists?(id: params[:id])
+            user = User.find(params[:id])
+            if user.update!
+                render json:user
+            else
+                render json:{data:'ERROR',mesage:'Falha ao atualizar o usuario'}, status: :bad_request
+            end
+        else
+            render json:{data:'ERROR',mesage:'Usuario inexistente'}, status: :not_found
+        end
+
+    end
+
+    def destroy
+        if User.exists?(id: params[:id])
+            user = User.find(params[:id])
+            if user.destroy!
+                render json:{data:'SUCCESS',mesage:'Usuario deletado com sucesso!'}, status: :ok
+            else
+                render json:{data:'ERROR',mesage:'Falha ao deletar usuario'}, status: :bad_request
+            end
+        else
+            render json: {data:'ERROR',mesage:'Usuario nao existe'}, status: :not_found
+        end
+
+    end
+
+    def show
+        if User.exists?(params[:id])
+            user = User.find(params[:id])
+            render json: user, status: :ok
+        else    
+            render json: {data:'ERROR',message:'Usuario nao encontrado'},status: :unprocessable_entity
+        end
+    end
+
     private
     
     def user_params
