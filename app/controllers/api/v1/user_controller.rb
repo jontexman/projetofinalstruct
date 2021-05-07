@@ -30,8 +30,8 @@ class Api::V1::UserController < ApplicationController
     def update
         if User.exists?(id: params[:id])
             user = User.find(params[:id])
-            if user.update!
-                render json:user
+            if user.update!(user_params)
+                render json:user, status: :ok
             else
                 render json:{data:'ERROR',mesage:'Falha ao atualizar o usuario'}, status: :bad_request
             end

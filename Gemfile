@@ -47,3 +47,5 @@ gem 'devise'
 
 #Token
 gem 'simple_token_authentication'
+
+#Serializer
