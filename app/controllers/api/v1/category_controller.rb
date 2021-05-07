@@ -53,6 +53,6 @@ class Api::V1::CategoryController < ApplicationController
   end
   private
   def category_params
-    params.require(:category).permit(:type)
+    params.require(:category).permit(:name)
   end
 end
