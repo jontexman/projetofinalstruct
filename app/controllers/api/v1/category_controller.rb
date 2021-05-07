@@ -1,4 +1,4 @@
-class CategoryController < ApplicationController
+class Api::V1::CategoryController < ApplicationController
   def index
     categories  = Category.all
     render json: categories
@@ -31,7 +31,7 @@ class CategoryController < ApplicationController
   def update
     if Category.exists?(params[:id])
       category = Category.find(params[:id])
-      if category.update(publishers_params)
+      if category.update(category_params)
         render json: category, status: :ok
       else
         render json: {status: 'ERROR', message: 'falha ao editar categoria', data: category}, status: :bad_request
@@ -42,6 +42,15 @@ class CategoryController < ApplicationController
 
   end
 
+  def games_category
+    if Category.exists?(params[:id])
+      category = Category.find(params[:id])
+      render json: {name:Category.type, games:Category.games}, status: :ok
+
+    else
+      render json: {status: 'ERROR', message: 'falha ao mostrar categoria, id não existente'}, status: :unprocessable_entity
+    end
+  end
   private
   def category_params
     params.require(:category).permit(:type)
