@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_07_131847) do
+ActiveRecord::Schema.define(version: 2021_05_07_181337) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -71,12 +71,13 @@ ActiveRecord::Schema.define(version: 2021_05_07_131847) do
     t.string "name"
     t.string "price"
     t.integer "category"
-    t.string "publisher"
     t.string "description"
     t.string "picture"
     t.string "trailer"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "publisher_id", null: false
+    t.index ["publisher_id"], name: "index_games_on_publisher_id"
   end
 
   create_table "publishers", force: :cascade do |t|
@@ -107,4 +108,5 @@ ActiveRecord::Schema.define(version: 2021_05_07_131847) do
   add_foreign_key "game_users", "users"
   add_foreign_key "gamecategories", "categories"
   add_foreign_key "gamecategories", "games"
+  add_foreign_key "games", "publishers"
 end

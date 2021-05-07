@@ -15,3 +15,11 @@ User.create(name:"Administrador",email:"admin@admin",password:"adm123",password_
 10.times do
 Category.create(name: Faker::Game.genre)
 end
+
+10.times do
+  Game.create(name: Faker::Game.title)
+end
+
+Gamecategory.create(game_id:1, category_id:1)
+Gamecategory.create(game_id:1, category_id:2)
+Gamecategory.create(game_id:2, category_id:1)
