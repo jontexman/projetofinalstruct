@@ -20,7 +20,22 @@ Rails.application.routes.draw do
         put 'update/:id', to:'publishers#update', as: 'update_publisher'
         get 'games_publishers/:id', to:'publishers#games_publishers', as: 'publishers_games'
       end
-      
+
+      scope 'game/' do
+        get 'index', to:'game#index', as: 'games_index'
+        get 'show/:id', to:'game#show', as: 'show_game'
+        post 'create', to:'game#create', as: 'create_game'
+        delete 'destroy/:id', to:'game#destroy', as: 'destroy_game'
+        put 'update/:id', to:'game#update', as: 'update_game'
+      end
+      scope 'category/' do
+        get 'index', to:'category#index', as: 'category_index'
+        get 'show/:id', to:'category#show', as: 'show_category'
+        post 'create', to:'category#create', as: 'create_category'
+        delete 'destroy/:id', to:'category#destroy', as: 'destroy_categories'
+        put 'update/:id', to:'category#update', as: 'update_categories'
+        get 'games_categories/:id', to:'category#games_categories', as: 'games_categories'
+      end
     end
   end
 end
