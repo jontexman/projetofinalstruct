@@ -52,8 +52,7 @@ class Api::V1::CategoryController < ApplicationController
   def games_category
     if Category.exists?(params[:id])
       category = Category.find(params[:id])
-      render json: {name:Category.type, games:Category.games}, status: :ok
-
+      render json: {name:category.name, games:category.games}, status: :ok
     else
       render json: {status: 'ERROR', message: 'falha ao mostrar categoria, id não existente'}, status: :unprocessable_entity
     end
