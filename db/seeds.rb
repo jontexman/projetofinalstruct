@@ -5,9 +5,13 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require 'faker'
 
 Publisher.create(name:"Publicadora1")
 Publisher.create(name:"Publicadora2")
   #User.image.attached(io: File.open('./public/nome_imagem.formato'), filename:'nome_imagem.formato')
 
 User.create(name:"Administrador",email:"admin@admin",password:"adm123",password_confirmation:"adm123",is_Admin:true)
+10.times do
+Category.create(name: Faker::Game.genre)
+end
