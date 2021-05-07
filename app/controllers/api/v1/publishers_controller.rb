@@ -56,7 +56,7 @@ class Api::V1::PublishersController < ApplicationController
     def games_publishers
         if Publisher.exists?(params[:id])
             publisher = Publisher.find(params[:id])
-            render json: {name:Publisher.name, games:Publisher.games}, status: :ok 
+            render json: {name:publisher.name, games:publisher.games}, status: :ok
         
         else
             render json: {status: 'ERROR', message: 'falha ao mostrar publicadora, id não existente'}, status: :unprocessable_entity

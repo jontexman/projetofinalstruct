@@ -35,7 +35,7 @@ Rails.application.routes.draw do
         post 'create', to:'category#create', as: 'create_category'
         delete 'destroy/:id', to:'category#destroy', as: 'destroy_categories'
         put 'update/:id', to:'category#update', as: 'update_categories'
-        get 'games_categories/:id', to:'category#games_categories', as: 'games_categories'
+        get 'games_category/:id', to:'category#games_categories', as: 'games_categories'
       end
 
     end

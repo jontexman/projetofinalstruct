@@ -57,10 +57,17 @@ class Api::V1::GameController < ApplicationController
       render json: {status:"ERROR", message: 'usuario noa é admin'}, status: :bad_request
       end
     end
-
+  def show
+    if Game.exists?(params[:id])
+      game = Game.find(params[:id])
+      render json: game, status: :ok, include: :categories
+    else
+      render json: {status: 'ERROR', message: 'falha ao mostrar jogo, id não existente'}, status: :unprocessable_entity
+    end
+  end
 
   private
   def game_params
-    params.require(:game).permit(:name, :price, :category, :publisher, :description, :picture, :trailer)
+    params.require(:game).permit(:name, :price, :category, :publisher_id, :description, :picture, :trailer)
   end
 end
