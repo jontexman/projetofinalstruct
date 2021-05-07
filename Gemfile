@@ -49,3 +49,4 @@ gem 'devise'
 gem 'simple_token_authentication'
 
 #Serializer
+gem 'active_model_serializers'
