@@ -27,7 +27,7 @@ class Api::V1::UserController < ApplicationController
 
     end
 
-    def updated
+    def update
         if User.exists?(id: params[:id])
             user = User.find(params[:id])
             if user.update!
