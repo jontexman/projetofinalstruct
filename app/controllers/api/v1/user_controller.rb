@@ -65,6 +65,18 @@ class Api::V1::UserController < ApplicationController
         end
     end
 
+    def show_biblioteca
+        if User.exists?(id: params[:id])
+            user = User.find(params[:id])
+            render json: { games:User.games}, status: :ok 
+        else    
+            render json: {data:'ERROR',mesage:'Usuario nao encontrado'}, status: :unprocessable_entity
+        end
+    end
+
+
+
+
     private
     
     def user_params
