@@ -10,6 +10,7 @@ Rails.application.routes.draw do
         delete 'destroy/:id', to: 'user#destroy', as:'delete_user'
         put 'update/:id', to: 'user#update', as:'update_user'
         get 'show/:id', to:'user#show', as:'show_user'
+        post 'create_library', to:'user#create_library', as:'create_library'
         get 'show_library/:id', to:'user#show_library', as:'library'
       end
 
