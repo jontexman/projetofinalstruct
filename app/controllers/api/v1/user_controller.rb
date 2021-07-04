@@ -61,21 +61,34 @@ class Api::V1::UserController < ApplicationController
             user = User.find(params[:id])
             render json: user, status: :ok
         else    
-            render json: {data:'ERROR',mesage:'Usuario nao encontrado'}, status: :unprocessable_entity
+            render json: {data:'ERROR',mesage:'Usuario nao existe'}, status: :unprocessable_entity
         end
     end
 
-    def show_biblioteca
+    def create_library
+        if User.exists?(id: params[:id])
+            if Game.exists?(params[:id])
+                game = Game.find(params[:id])
+                library = User.library
+                library.push(game)
+                render json: game, status: :ok, include: :categories
+              else
+                render json: {status: 'ERROR', message: 'Falha ao mostrar jogo, id não existente'}, status: :unprocessable_entity
+              end
+            end
+        else    
+            render json: {data:'ERROR',mesage:'Usuario nao existe'}, status: :unprocessable_entity
+        end
+    end
+
+    def show_library
         if User.exists?(id: params[:id])
             user = User.find(params[:id])
             render json: { games:User.games}, status: :ok 
         else    
-            render json: {data:'ERROR',mesage:'Usuario nao encontrado'}, status: :unprocessable_entity
+            render json: {data:'ERROR',mesage:'Usuario nao existe'}, status: :unprocessable_entity
         end
     end
-
-
-
 
     private
     
