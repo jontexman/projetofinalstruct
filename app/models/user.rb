@@ -2,7 +2,8 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
 
-  has_many :games
+  has_many :games, through: :game_user
+  has_many :game_users
   acts_as_token_authenticatable
 
   validates :name,presence: true

@@ -10,6 +10,7 @@ Rails.application.routes.draw do
         delete 'destroy/:id', to: 'user#destroy', as:'delete_user'
         put 'update/:id', to: 'user#update', as:'update_user'
         get 'show/:id', to:'user#show', as:'show_user'
+        get 'show_bliblioteca/:id', to:'user#show_biblioteca', as:'biblioteca'
       end
 
       scope 'publishers/' do
@@ -34,7 +35,7 @@ Rails.application.routes.draw do
         post 'create', to:'category#create', as: 'create_category'
         delete 'destroy/:id', to:'category#destroy', as: 'destroy_categories'
         put 'update/:id', to:'category#update', as: 'update_categories'
-        get 'games_categories/:id', to:'category#games_categories', as: 'games_categories'
+        get 'games_category/:id', to:'category#games_category', as: 'games_categories'
       end
 
     end
