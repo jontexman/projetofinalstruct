@@ -16,6 +16,7 @@ Rails.application.routes.draw do
       scope 'publishers/' do
         get 'index', to:'publishers#index', as: 'publisher_index'
         get 'show/:id', to:'publishers#show', as: 'show_publisher'
+        get 'show_by_name/:name', to:'publishers#show_by_name', as: 'show_by_name_publisher'
         post 'create', to:'publishers#create', as: 'create_publisher'
         delete 'destroy/:id', to:'publishers#destroy', as: 'destroy_publisher'
         put 'update/:id', to:'publishers#update', as: 'update_publisher'

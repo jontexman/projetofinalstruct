@@ -13,6 +13,15 @@ class Api::V1::PublishersController < ApplicationController
         end
     end
 
+    def show_by_name
+        if Publisher.where(name: params[:name]).exists?
+            publisher = Publisher.where(name: params[:name])
+            render json: publisher, status: :ok
+        else
+            render json: {status: 'ERROR', message: 'falha ao mostrar publicadora, id não existente'}, status: :unprocessable_entity
+        end
+    end
+
     def create
         publisher = Publisher.new(publishers_params)
         if publisher.save
