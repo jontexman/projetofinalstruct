@@ -65,9 +65,19 @@ class Api::V1::GameController < ApplicationController
         end
       end
 
-      private
-      
-        def game_params
-          params.require(:game).permit(:name, :price, :category, :publisher_id, :description, :picture, :trailer)
-        end
+
+  def show_by_publisher
+    if Game.where(publisher_id: params[:id]).exists?
+        game = Game.where(publisher_id: params[:id])
+        render json: game, status: :ok
+    else
+        render json: {status: 'ERROR', message: 'falha ao mostrar game, id não existente'}, status: :unprocessable_entity
+    end
+end
+
+  private
+  def game_params
+    params.require(:game).permit(:name, :price, :category, :publisher_id, :description, :picture, :trailer)
+  end
+
 end
